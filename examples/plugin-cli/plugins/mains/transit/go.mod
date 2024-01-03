@@ -2,6 +2,12 @@ module github.com/hashicorp/go-kms-wrapping/examples/cli/plugins/mains/transit
 
 go 1.20
 
+// Hack: replace hashicorp/vault's api with openbao's api; this is likely due
+// to an upstream dependency somewhere.
+replace github.com/hashicorp/go-kms-wrapping/plugin/v2 => ../../../../plugin
+
+replace github.com/hashicorp/go-kms-wrapping/wrappers/transit/v2 => ../../../../wrappers/transit
+
 require (
 	github.com/hashicorp/go-kms-wrapping/plugin/v2 v2.0.5
 	github.com/hashicorp/go-kms-wrapping/wrappers/transit/v2 v2.0.8
